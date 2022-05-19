@@ -1,51 +1,51 @@
 import React from 'react'
-import Tile from './Tile'
+import Letter from './Letter'
 
 function Board() {
 
     return (
         <div className="board">
             <div className="row">
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Letter letterPos = {0} attemptVal = {0}/>
+                <Letter letterPos = {1} attemptVal = {0}/>
+                <Letter letterPos = {2} attemptVal = {0}/>
+                <Letter letterPos = {3} attemptVal = {0}/>
+                <Letter letterPos = {4} attemptVal = {0}/>
             </div>
             <div className="row">
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Letter letterPos = {0} attemptVal = {0}/>
+                <Letter letterPos = {1} attemptVal = {0}/>
+                <Letter letterPos = {2} attemptVal = {0}/>
+                <Letter letterPos = {3} attemptVal = {0}/>
+                <Letter letterPos = {4} attemptVal = {0}/>
             </div>
             <div className="row">
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Letter letterPos = {0} attemptVal = {0}/>
+                <Letter letterPos = {1} attemptVal = {0}/>
+                <Letter letterPos = {2} attemptVal = {0}/>
+                <Letter letterPos = {3} attemptVal = {0}/>
+                <Letter letterPos = {4} attemptVal = {0}/>
             </div>
             <div className="row">
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Letter letterPos = {0} attemptVal = {0}/>
+                <Letter letterPos = {1} attemptVal = {0}/>
+                <Letter letterPos = {2} attemptVal = {0}/>
+                <Letter letterPos = {3} attemptVal = {0}/>
+                <Letter letterPos = {4} attemptVal = {0}/>
             </div>
             <div className="row">
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Letter letterPos = {0} attemptVal = {0}/>
+                <Letter letterPos = {1} attemptVal = {0}/>
+                <Letter letterPos = {2} attemptVal = {0}/>
+                <Letter letterPos = {3} attemptVal = {0}/>
+                <Letter letterPos = {4} attemptVal = {0}/>
             </div>
             <div className="row">
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
-                <Tile />
+                <Letter letterPos = {0} attemptVal = {0}/>
+                <Letter letterPos = {1} attemptVal = {0}/>
+                <Letter letterPos = {2} attemptVal = {0}/>
+                <Letter letterPos = {3} attemptVal = {0}/>
+                <Letter letterPos = {4} attemptVal = {0}/>
             </div>
         </div>
         

@@ -1,9 +1,9 @@
 import React, {useEffect, useContext ,useCallback} from 'react'
 import Key from './Key'
-import {AppContext} from "../App";
+import {AppContext} from "../App"
 
 function Keyboard() {
-    const {onSelectLetter, onEnter, onDelete} = useContext(AppContext);
+    const {onSelectLetter, onEnter, onDelete} = useContext(AppContext)
   
   
     // The keyboard is split in three rows, so each one of these arrays declares the keys
@@ -26,7 +26,7 @@ function Keyboard() {
         keys.forEach((row) => {
           row.forEach((key) => {
             if(event.key.toLowerCase() === key.toLowerCase()) {
-              onSelectLetter(key);
+              onSelectLetter(key)
             }
           })
         })
@@ -40,25 +40,25 @@ function Keyboard() {
       return () => {
         document.removeEventListener("keydown", handleKeyboard)
       }
-    }, [handleKeyboard]);
+    }, [handleKeyboard])
   
     // Creates the three rows of keys, and also add the ENTER and DEL key to the third row
     return (
       <div className="keyboard" onKeyDown={handleKeyboard}>
         <div className = "row1">
           {keys[0].map((key) => {
-            return <Key keyVal = {key}/>;
+            return <Key keyVal = {key}/>
           })}
         </div>
         <div className = "row2">
         {keys[1].map((key) => {
-            return <Key keyVal = {key}/>;
+            return <Key keyVal = {key}/>
           })}
         </div>
         <div className = "row3">
         <Key keyVal = {"ENTER"} bigKey/>
         {keys[2].map((key) => {
-            return <Key keyVal = {key}/>;
+            return <Key keyVal = {key}/>
           })}
         <Key keyVal = {"DEL"} bigKey/>
         </div>

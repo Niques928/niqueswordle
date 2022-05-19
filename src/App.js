@@ -7,12 +7,19 @@ import { createContext, useState } from 'react'
 
 
 
+
 export const AppContext = createContext()
 
 function App() {
   const [board, setBoard] =useState(boardDefault)
+  const [currAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0})
 
   const onSelectLetter = (keyVal) => {
+    if(currAttempt.letterPos > 4) return; // User already entered 5 letters
+    const newBoard = [...board] // copy of current state of the board
+    newBoard[currAttempt.attempt][currAttempt.letterPos] = keyVal // set new letter
+    setBoard(newBoard) // update board
+    setCurrAttempt({...currAttempt, letterPos: currAttempt.letterPos+1}) // update letter pos
     
   }
 
@@ -32,6 +39,8 @@ function App() {
   <AppContext.Provider value = {{
     board,
     setBoard,
+    currAttempt,
+    setCurrAttempt,
     onSelectLetter,
     onEnter,
     onDelete
