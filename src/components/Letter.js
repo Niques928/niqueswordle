@@ -6,7 +6,9 @@ function Letter({letterPos, attemptVal}) {
     const {board, correctWord, currAttempt} = useContext(AppContext)
     const letter = board[attemptVal][letterPos]
 
-    return <div className="tile"> </div>
+    const letterState = currAttempt.attempt > attemptVal 
+
+    return <div className="tile" id={letterState}>{letter}</div>
 }
 
 export default Letter 

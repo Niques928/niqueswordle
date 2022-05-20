@@ -49,6 +49,8 @@ function App() {
   <AppContext.Provider value = {{
     board,
     setBoard,
+    currAttempt,
+    setCurrAttempt,
     onSelectLetter,
     onEnter,
     onDelete
