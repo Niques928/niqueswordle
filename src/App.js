@@ -1,9 +1,9 @@
 import logo from './logo.svg'
 import './App.css'
 import Board from './components/Board'
-import {boardDefault} from './Words'
+import {boardDefault, generateWordSet} from './Words'
 import Keyboard from './components/Keyboard'
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 
 
@@ -12,6 +12,20 @@ export const AppContext = createContext()
 function App() {
   const [board, setBoard] =useState(boardDefault)
   const [currAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0})
+  const [wordSet, setWordSet] = useState(new Set())
+  const [gameOver, setGameOver] = useState ({gameOver: false, guessedWord: false})
+  const [correctWord, setCorrectWord] = useState("")
+
+
+  // Load words from words file and pick a random word
+  useEffect(() => {
+    generateWordSet().then((words) => {
+      setWordSet(words.wordSet)
+      //The word chosen from the file is lowercase, so we must convert it to upper case
+      setCorrectWord(words.chosenWord.toUpperCase())
+    })
+  }, [])
+
 
   const onSelectLetter = (keyVal) => {
     if(currAttempt.letterPos > 4) return // User already entered 5 letters
@@ -37,6 +51,7 @@ function App() {
     for (let i = 0; i < 5; i++) {
     currentWord += board[currAttempt.attempt][i];
  }
+
 
 
   }
