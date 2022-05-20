@@ -7,7 +7,6 @@ import { createContext, useState } from 'react'
 
 
 
-
 export const AppContext = createContext()
 
 function App() {
@@ -15,19 +14,30 @@ function App() {
   const [currAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0})
 
   const onSelectLetter = (keyVal) => {
-    if(currAttempt.letterPos > 4) return; // User already entered 5 letters
-    const newBoard = [...board] // copy of current state of the board
-    newBoard[currAttempt.attempt][currAttempt.letterPos] = keyVal // set new letter
-    setBoard(newBoard) // update board
-    setCurrAttempt({...currAttempt, letterPos: currAttempt.letterPos+1}) // update letter pos
-    
+    if(currAttempt.letterPos > 4) return // User already entered 5 letters
+    const newBoard = [...board]; // copy of current state of the board
+    newBoard[currAttempt.attempt][currAttempt.letterPos] = keyVal; // set new letter
+    setBoard(newBoard); // update board
+    setCurrAttempt({...currAttempt, letterPos: currAttempt.letterPos+1}); // update letter pos
   }
 
   const onDelete = () => {
-
+    if(currAttempt.letterPos === 0) return // there are no letters entered
+    const newBoard = [...board]; // copy board
+    newBoard[currAttempt.attempt][currAttempt.letterPos - 1] = ""; // delete the letter
+    setBoard(newBoard); // update board
+    setCurrAttempt({...currAttempt, letterPos: currAttempt.letterPos-1}); // update letter pos
   }
 
   const onEnter = () => {
+     // Check that the row is filled
+     if (currAttempt.letterPos !== 5) return
+    // Get the letters from the board (at the current row) and form the word inputted by user
+    let currentWord = " ";
+    for (let i = 0; i < 5; i++) {
+    currentWord += board[currAttempt.attempt][i];
+ }
+
 
   }
   return (
@@ -39,8 +49,6 @@ function App() {
   <AppContext.Provider value = {{
     board,
     setBoard,
-    currAttempt,
-    setCurrAttempt,
     onSelectLetter,
     onEnter,
     onDelete
